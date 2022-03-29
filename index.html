@@ -6,19 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sass/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
     <title>Accueil</title>
 </head>
 <body>
     <header>
-        <img src="public/images/logo/ohmyfood.png" alt="logo" width="100" />
-    </header>
+        <img src="public/images/logo/ohmyfood.png" alt="logo" class="heading-logo" width="100" />
 
-    <section class="navigation">
-        <i class="fa-solid fa-location-dot"></i>
-        <form method="post" action="traitement.php" class="navigation__location-name">
-            <p><input type="text" name="city" placeholder="Paris, Belleville"/></p>
-        </form><!--Fermeture navigation__location-name-->
-    </section><!--Fermeture navigation-->
+        <nav class="navigation">
+            <i class="fa-solid fa-location-dot"></i>
+            <form method="post" action="traitement.php">
+                <p><input type="text" class="navigation__location-name" name="city" placeholder="Paris, Belleville"/></p>
+            </form><!--Fermeture navigation__location-name-->
+        </nav><!--Fermeture navigation-->
+    </header>
 
     <section class="presentation">
         <h2 class="title">Réservez le menu qui vous convient</h2>
@@ -52,60 +58,60 @@
     <section class="restaurants">
         <h2 class="title">Restaurants</h2>
         <div id="cards">
-            <a href="palette_du_gout.html" class="proposition">
-                <img src="public/images/restaurants/palette_du_gout.jpg" alt="La palettes du goût" class="proposition__image" width="100" />
-                <div class="proposition__detail">
-                    <div class="localization">
+            <div class="proposition">
+                <a href="palette_du_gout.html">
+                    <img src="public/images/restaurants/palette_du_gout.jpg" alt="La palette du gout" class="proposition__image" width="100" />
+                    <div class="proposition__detail">
                         <h4>La palette du goût</h4>
                         <p>Ménilmontant</p>
-                    </div><!--Fermeture localization-->
-                    <i class="fa-solid fa-heart"></i>
-                </div><!--Fermeture proposition__detail-->
-            </a><!--Fermeture proposition-->
+                    </div><!--Fermeture proposition_detail-->
+                </a>
+                <i class="fa-regular fa-heart"></i> 
+            </div><!--Fermeture proposition-->
 
-            <a href="note_enchantee.html" class="proposition">
-                <img src="public/images/restaurants/note_enchantée.jpg" alt="La note enchantée" class="proposition__image" width="100" />
-                <div class="proposition__detail">
-                    <div class="localization">
+            <div class="proposition">
+                <a href="note_enchantee.html">
+                    <img src="public/images/restaurants/note_enchantée.jpg" alt="Note enchantée" class="proposition__image" width="100" />
+                    <div class="proposition__detail">
                         <h4>La note enchantée</h4>
                         <p>Charonne</p>
-                    </div><!--Fermeture localization-->
-                    <i class="fa-solid fa-heart"></i>
-                </div><!--Fermeture proposition__detail-->
-            </a><!--Fermeture proposition-->
+                    </div><!--Fermeture proposition_detail-->
+                </a>
+                <i class="fa-regular fa-heart"></i> 
+            </div><!--Fermture proposition-->
 
-            <a href="a_la_francaise.html" class="proposition">
-                <img src="public/images/restaurants/a_la_francaise.jpg" alt="A la francaise" class="proposition__image" width="100" />
-                <div class="proposition__detail">
-                    <div class="localization">
+            <div class="proposition">
+                <a href="a_la_francaise.html">
+                    <img src="public/images/restaurants/a_la_francaise.jpg" alt="A la française" class="proposition__image" width="100" />
+                    <div class="proposition__detail">
                         <h4>A la française</h4>
                         <p>Cité Rouge</p>
-                    </div><!--Fermeture localization-->
-                    <i class="fa-solid fa-heart"></i>
-                </div><!--Fermeture proposition__detail-->
-            </a><!--Fermeture proposition-->
+                    </div><!--Fermeture proposition_detail-->
+                </a>
+                <i class="fa-regular fa-heart"></i> 
+            </div><!--Fermeture proposition-->
 
-            <a href="delice_des_sens.html" class="proposition">
-                <img src="public/images/restaurants/delice_des_sens.jpg" alt="Délice des sens" class="proposition__image" width="100" />
-                <div class="proposition__detail">
-                    <div class="localization">
+            <div class="proposition">
+                <a href="delice_des_sens.html">
+                    <img src="public/images/restaurants/delice_des_sens.jpg" alt="Délice des sens" class="proposition__image" width="100" />
+                    <div class="proposition__detail">
                         <h4>Le délice des sens</h4>
                         <p>Folie-Méricourt</p>
-                    </div><!--Fermeture localization-->
-                    <i class="fa-solid fa-heart"></i>
-                </div><!--Fermeture proposition__detail-->
-            </a><!--Fermeture proposition-->
+                    </div><!--Fermeture proposition_detail-->
+                </a>
+                <i class="fa-regular fa-heart"></i> 
+            </div><!--Fermeture proposition-->
         </div><!--Fermeture cards-->
     </section><!--Fermeture restaurants-->
 
     <footer>
-        <img src="public/images/logo/ohmyfood.png" alt="logo" width="100" />
-        <a class="information">
+        <p class="footer-title">ohmyfood</p>
+        <a href="#" class="information">
             <i class="fa-solid fa-utensils"></i>
             <p>Proposer un restaurant</p>
         </a><!--Fermeture information-->
 
-        <a class="information">
+        <a href="#" class="information">
             <i class="fa-solid fa-handshake-angle"></i>
             <p>Devenir partenaire</p>
         </a><!--Fermeture information-->
