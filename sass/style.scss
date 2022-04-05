@@ -4,161 +4,349 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-@media all and (max-width: 768px){
-    $dark-grey: #DDDDDD;
+    $dark-grey: #e6e6e6;
     $light-grey: #F4F2F2;
     $color-primary: #9356DC;
     $color-secondary: #FF79DA;
     $color-tertiary: #99E2D0;
     $font: 'Roboto', sans-serif;
     $logo-font: 'Shrikhand', cursive;
-
-    header{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .heading-logo{
-            width: 50%;
-            padding: 4%;
-        }
-        .navigation{
-            display: flex;
-            width: 100%;
-            height: 50px;
-            background-color: $dark-grey;
-            justify-content: center;
-            align-items: center;
-            
-            .navigation__location-name{
-                background-color: $dark-grey;
-                border: none;
-                margin-left: 20px;
+    $button-color: linear-gradient(to bottom right, $color-secondary, $color-primary);
+    @mixin button {
+        padding: 5%;
+        border-radius: 30px;
+        color: white;
+        position: relative;
+        text-decoration: none;
+        font-family: $font;
+        font-size: 15px;
+        z-index: 1;
+        &:hover{
+            &::after{
+                opacity: 0.8;
             }
-            & ::placeholder{
-                color: black;
-                font-size: 15px;
-            }
-        } //* Fermeture navigation *//
-    } //* Fermeture Header *//
-
-    .presentation{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        background-color: $light-grey;
-        height: 290px;
-        padding: 10%;
-        .title{
-            font-family: $font;
-            font-size: 23px;
-            text-align: center;
         }
-        .presentation__explanation{
-            text-align: center;
-            font-family: $font;
-            font-size: 17px;
-            font-weight: 100;
-        }
-        .presentation__btn-exploration{
-            border: 1px solid black;
-            padding: 5%;
+        &::after{
+            content: "";
+            position: absolute;
             border-radius: 30px;
-            background-color: $color-primary;
-            color: white;
-            text-decoration: none;
-            font-family: $font;
-            font-size: 15px;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: $button-color;
+            z-index: -1;
         }
-    } //* Fermeture presentation *//
+    }//* Fermeture mixin *//
 
-    .functioning{
+    #loading{
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        height: 440px;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        .title{
-            font-family: $font;
-            font-weight: 500;
-            margin-left: 5%;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient($color-primary, $color-secondary);
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0; 
+        overflow: auto;
+        z-index: 3;
+        animation-name: disappearance;
+        animation-delay: 3s;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        @keyframes disappearance {
+            0%{opacity: 1; z-index: 3;}
+            25%{opacity: 0.75; z-index: 3;}
+            50%{opacity: 0.5; z-index: 3;}
+            75%{opacity: 0.25;z-index: 3;}
+            100%{opacity: 0; z-index: 1;}
         }
-        .functioning__btn-choice{
-            display: flex;
-            border: 1px solid $dark-grey;
-            border-radius: 20px;
-            background-color: $light-grey;
-            justify-content: center;
-            align-items: center;
-            height: 70px;
-            margin-left: 10%;
-            margin-right: 10%;
-            color: black;
-            text-decoration: none;
-            font-family: $font;
-            font-size: 15px;
-            .number{
-                border: 1px solid $color-primary;
-                background-color: $color-primary;
-                color: white;
-                border-radius: 50%;
-                width: 32px;
-                height: 32px;
-            }
-        } //* Fermeture functioning_btn-choice
-    } //* Fermeture functioning *//
-
-    .restaurants{
-        background-color: $light-grey;
-        height: auto;
-        padding-top:13%;
-        padding-bottom: 10%;
-        .title{
-            font-family: $font;
-            font-weight: 500;
-            margin-left: 5%;
+        .loading-logo{
+          width: 50%;
+          margin-top: 5%;
         }
-        #cards{
+        #loading-waiting{
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          padding-top: 20%;
+          .loading-waiting__carre{
+            width: 50px;
+            height: 50px;
+            background-color: $color-primary;
+            animation: turn 1.5s alternate infinite;
+            @keyframes turn{
+              0%{transform: rotate(0deg);}
+              100%{transform: rotate(359deg);}
+          }
+          } //* Fermeture loading-waiting__carre *//
+        } //* Fermeture loading-waiting *//
+        .loading-text{
+          font-family: $font;
+          width: 80%;
+          text-align: center;
+          font-size: 40px;
+          color: white;
+          margin-top: 15%;
+        }
+      } //* Fermeture loading *//
+        
+    #application{
+        z-index: 2;
+        position: absolute;
+        header{
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
-            .proposition{
-                width: 90%;
-                height: 250px;
+            .heading-logo{
+                width: 50%;
+                padding: 4%;
+            }
+            .fa-arrow-left{
+                position: absolute;
+                left: 5%;
+                padding-top: 6%;
+            }
+            .navigation{
+                display: flex;
+                width: 100%;
+                height: 50px;
+                background-color: $dark-grey;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                box-shadow: inset #D7D7D7 0 2px 13px;
+                .navigation__location-name{
+                    background-color: $dark-grey;
+                    border: none;
+                    margin-left: 20px;
+                }
+                & ::placeholder{
+                    color: black;
+                    font-size: 15px;
+                }
+            } //* Fermeture navigation *//
+        } //* Fermeture Header *//
+
+        .presentation{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: $light-grey;
+            height: 290px;
+            padding: 10%;
+            .title{
+                font-family: $font;
+                font-size: 27px;
+                text-align: center;
+            }
+            .presentation__explanation{
+                text-align: center;
+                font-family: $font;
+                font-size: 17px;
+                font-weight: 100;
+            }
+            .presentation__btn-exploration{
+                @include button;
+            }
+        } //* Fermeture presentation *//
+
+        .functioning{
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            padding-top: 10%;
+            padding-bottom: 10%;
+            .title{
+                font-family: $font;
+                font-weight: 500;
+                margin-left: 5%;
+                margin-bottom: 10%;
+            }
+            .functioning__btn-choice{
+                display: flex;
+                border-radius: 20px;
+                align-items: center;
+                height: 70px;
+                margin-left: 10%;
+                margin-right: 10%;
+                margin-bottom: 7%;
+                color: black;
+                text-decoration: none;
+                font-family: $font;
+                font-size: 15px;
+                padding-left: 10%;
+                box-shadow: #D7D7D7 0 2px 13px;
+                background-color: $light-grey;
+                &:hover{
+                    background-color: lighten($color-primary, 35);
+                    color: $color-primary;
+                    .indication{
+                        color: black;
+                    } 
+                }
+                .number{
+                    color: white;
+                    border-radius: 50%;
+                    width: 32px;
+                    height: 32px;
+                    text-align: center;
+                    padding-top: 7px;
+                    position: relative;
+                    left: -17%;
+                    z-index: 1;
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        border-radius: 50%;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        left: 0;
+                        background: $color-primary;
+                        z-index: -1;
+                    }
+                }
+                & i{
+                    margin-right: 10%;
+                    font-size: 18px;
+                }
+            } //* Fermeture functioning_btn-choice
+        } //* Fermeture functioning *//
+
+        .restaurants{
+            background-color: $light-grey;
+            height: auto;
+            padding-top:13%;
+            padding-bottom: 10%;
+            .title{
+                font-family: $font;
+                font-weight: 500;
+                margin-left: 5%;
+            }
+            #cards{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                .proposition{
+                    width: 90%;
+                    height: 250px;
+                    border: 1px solid $dark-grey;
+                    border-radius: 20px;
+                    background-color: white;
+                    box-shadow: #D7D7D7 0 0 15px;
+                    margin-top: 5%;
+                    .proposition__image{
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                        height: 180px;
+                        border-radius: 15px 15px 0 0;
+                        object-fit: cover;
+                        z-index: 1;
+                    }
+                    .new{
+                        width: 20%;
+                        text-align: center;
+                        background-color: $color-tertiary;
+                        border-radius: 3px;
+                        font-family: $font;
+                        font-size: 13px;
+                        font-weight: 300;
+                        padding: 2%;
+                        position: absolute;
+                        margin-left: 65%;
+                        margin-top: 3%;
+                        z-index: 2;
+                    }
+                    .proposition__detail{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-left: 2%;
+                        margin-right: 5%;
+                        margin-top: 2%;
+                        .fa-heart {
+                            font-size: 25px;
+                            background: white;
+                            &:hover{
+                                background: linear-gradient(to top, $color-secondary, $color-primary);
+                                background-clip: text;
+                            }
+                        }
+                    } //* Fermeture proposition_detail
+                    & a{
+                        text-decoration: none;
+                        color: black;
+                        font-family: $font;
+                    }
+                } //* Fermeture proposition *//
+            } //* Fermeture cards *//
+        } //* Fermeture restaurants *//
+
+    .banniere{
+        width: 100%;
+        height: 250px;
+        position: relative;
+        object-fit: cover;
+    }
+
+    #container{
+        background-color: $light-grey;
+        width: 100%;
+        height: auto;
+        border-radius: 30px;
+        padding-top: 5%;
+        position: absolute;
+        top: 30%;
+        #restaurant-title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 4%;
+            margin-right: 6%;
+            font-family: $logo-font;
+            font-weight: 900;
+        }
+        .propositions{
+            display: flex;
+            flex-direction: column;
+            margin-left: 5%;
+            margin-top: 7%;
+            h3{
+                font-family: $font;
+            }
+            .soulignement{
+                width: 50px;
+                border-bottom: 3px solid $color-tertiary;
+            }
+            .card{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                width: 95%;
+                height: 70px;
                 border: 1px solid $dark-grey;
                 border-radius: 20px;
                 background-color: white;
                 box-shadow: #D7D7D7 0 0 15px;
-                margin-top: 5%;
-                .proposition__image{
-                    position: relative;
-                    width: 100%;
-                    height: 180px;
-                    border-radius: 15px 15px 0 0;
-                    object-fit: cover;
-                }
-                .proposition__detail{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    margin-left: 2%;
-                    margin-right: 5%;
-                } //* Fermeture proposition_detail
-                & a{
-                    text-decoration: none;
-                    color: black;
+                margin-top: 3%;
+                padding-left: 3%;
+                padding-right: 5%;
+                padding-bottom: 3%;
+                .card__title{
+                    width: 60%;
                     font-family: $font;
+                    font-size: 15px;
                 }
-                & i{
-                    position: absolute;
-                    left: 85%;
-                }
-            } //* Fermeture proposition *//
-        } //* Fermeture cards *//
-    } //* Fermeture restaurants *//
+            } //* Fermeture cards *//
+        } //* Fermeture propositions *//
+    } //* Fermeture container *//
 
     footer{
         display: flex;
@@ -167,7 +355,7 @@
         background-color: #292929;
         color: white;
         padding: 5%;
-        height: 200px;
+        height: auto;
         .footer-title{
             font-family: $logo-font;
             font-size: 17px;
@@ -175,6 +363,9 @@
         }
         .information{
             display: flex;
+            p{
+                padding-left: 3%;
+            }
         }
         & a{
             color: white;
@@ -183,6 +374,82 @@
             font-weight: 300;
         }
     } //* Fermeture footer *//
-} //* Fermeture media queries *//
+    @media all and (min-width: 768px){
+        .presentation{
+            height: auto;
+            padding: 5%;
+            .title{
+                font-size: 40px;
+                margin-bottom: 3%;
+            }
+            .presentation__explanation{
+                font-size: 25px;
+                margin-bottom: 3%;
+            }
+        } //* Fermeture presentation *//
+        .functioning{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-bottom: 0;
+            .title{
+                width: 100%;
+            }
+            .functioning__btn-choice{
+                width: 40%;
+                align-items: center;
+                margin-left: 5%;
+                margin-right: 5%;
+                font-size: 15px;
+                padding-left: 3%;
+                margin-bottom: 10%;
+                .number{
+                    top: -50%;
+                    left: 40%;
+                }
+            } //* Fermeture functioning_btn-choice
+        } //* Fermeture functioning *//
+        .restaurants{
+            #cards{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                .proposition{
+                    width: 40%;
+                    height: 250px;
+                    border: 1px solid $dark-grey;
+                    border-radius: 20px;
+                    background-color: white;
+                    box-shadow: #D7D7D7 0 0 15px;
+                    margin-top: 5%;
+                    .proposition__image{
+                        position: relative;
+                        width: 100%;
+                        height: 180px;
+                        border-radius: 15px 15px 0 0;
+                        object-fit: cover;
+                    }
+                    .new{
+                        width: 10%;
+                    }
+                } //* Fermeture proposition *//
+            } //* Fermeture cards *//
+        } //* Fermeture restaurants *//
+        footer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            .footer-title{
+                font-size: 30px;
+                width: 100%;
+                text-align: center;
+            }
+        } //* Fermeture footer *//
+    } //* Fermeture media queries tablettes *//
+} //* Fermeture application *//
+
 
 

@@ -15,109 +15,130 @@
     <title>Accueil</title>
 </head>
 <body>
-    <header>
-        <img src="public/images/logo/ohmyfood.png" alt="logo" class="heading-logo" width="100" />
+    <div id="loading">
+        <img src="public/images/logo/ohmyfood.png" alt="logo" class="loading-logo" width="100">
+        <div id="loading-waiting">
+            <div class="loading-waiting__carre"></div>
+            <div class="loading-waiting__carre"></div>
+            <div class="loading-waiting__carre"></div>
+            <div class="loading-waiting__carre"></div>
+        </div>
+        <p class="loading-text">Nous vous apportons la carte...</p>
+    </div><!--Fermeture loading-->
+    <div id="application">
+        <header>
+            <img src="public/images/logo/ohmyfood.png" alt="logo" class="heading-logo" width="100" />
+            <nav class="navigation">
+                <i class="fa-solid fa-location-dot"></i>
+                <form method="post" action="traitement.php">
+                    <p><input type="text" class="navigation__location-name" name="city" placeholder="Paris, Belleville"/></p>
+                </form><!--Fermeture navigation__location-name-->
+            </nav><!--Fermeture navigation-->
+        </header>
 
-        <nav class="navigation">
-            <i class="fa-solid fa-location-dot"></i>
-            <form method="post" action="traitement.php">
-                <p><input type="text" class="navigation__location-name" name="city" placeholder="Paris, Belleville"/></p>
-            </form><!--Fermeture navigation__location-name-->
-        </nav><!--Fermeture navigation-->
-    </header>
+        <section class="presentation">
+            <h2 class="title">Réservez le menu qui vous convient</h2>
+            <p class="presentation__explanation">
+                Découvrez des restaurants d'exception, sélectionnés par nos soins.
+            </p>
+            <a href="#" class="presentation__btn-exploration">Explorer nos restaurants</a>
+        </section>
 
-    <section class="presentation">
-        <h2 class="title">Réservez le menu qui vous convient</h2>
-        <p class="presentation__explanation">
-            Découvrez des restaurants d'exception, sélectionnés par nos soins.
-        </p>
-        <a href="#" class="presentation__btn-exploration">Explorer nos restaurants</a>
-    </section>
+        <section class="functioning">
+            <h2 class="title">Fonctionnement</h2>
+            <a href="#" class="functioning__btn-choice">
+                <p class="number">1</p>
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <p class="indication">Choisissez un restaurant</p>
+            </a><!--Fermeture functioning__btn-choice-->
 
-    <section class="functioning">
-        <h2 class="title">Fonctionnement</h2>
-        <a href="#" class="functioning__btn-choice">
-            <p class="number">1</p>
-            <i class="fa-solid fa-mobile-screen-button"></i>
-            <p>Choisissez un restaurant</p>
-        </a><!--Fermeture functioning__btn-choice-->
+            <a href="#" class="functioning__btn-choice">
+                <p class="number">2</p>
+                <i class="fa-solid fa-list"></i>
+                <p class="indication">Composez votre menu</p>
+            </a><!--Fermeture functioning__btn-choice-->
 
-        <a href="#" class="functioning__btn-choice">
-            <p class="number">2</p>
-            <i class="fa-solid fa-list"></i>
-            <p>Composez votre menu</p>
-        </a><!--Fermeture functioning__btn-choice-->
+            <a href="#" class="functioning__btn-choice">
+                <p class="number">3</p>
+                <i class="fa-solid fa-store"></i>
+                <p class="indication">Dégustez au restaurant</p>
+            </a><!--Fermeture functioning__btn-choice-->
+        </section><!--Fermeture functioning-->
 
-        <a href="#" class="functioning__btn-choice">
-            <p class="number">3</p>
-            <i class="fa-solid fa-store"></i>
-            <p>Dégustez au restaurant</p>
-        </a><!--Fermeture functioning__btn-choice-->
-    </section><!--Fermeture functioning-->
+        <section class="restaurants">
+            <h2 class="title">Restaurants</h2>
+            <div id="cards">
+                <div class="proposition">
+                    <a href="palette_du_gout.html">
+                        <p class="new">Nouveau</p>
+                        <img src="public/images/restaurants/palette_du_gout.jpg" alt="Palette du gout" class="proposition__image" width="100" />
+                        <div class="proposition__detail">
+                            <div class="proposition__detail-text">
+                                <h4>La palette du goût</h4>
+                                <p>Ménilmontant</p>
+                            </div>
+                            <i class="fa-regular fa-heart"></i>
+                        </div><!--Fermeture proposition_detail-->
+                    </a>
+                </div><!--Fermeture proposition-->
 
-    <section class="restaurants">
-        <h2 class="title">Restaurants</h2>
-        <div id="cards">
-            <div class="proposition">
-                <a href="palette_du_gout.html">
-                    <img src="public/images/restaurants/palette_du_gout.jpg" alt="La palette du gout" class="proposition__image" width="100" />
-                    <div class="proposition__detail">
-                        <h4>La palette du goût</h4>
-                        <p>Ménilmontant</p>
-                    </div><!--Fermeture proposition_detail-->
-                </a>
-                <i class="fa-regular fa-heart"></i> 
-            </div><!--Fermeture proposition-->
+                <div class="proposition">
+                    <a href="note_enchantee.html">
+                        <p class="new">Nouveau</p>
+                        <img src="public/images/restaurants/note_enchantée.jpg" alt="Note enchantée" class="proposition__image" width="100" />
+                        <div class="proposition__detail">
+                            <div class="proposition__detail-text">
+                                <h4>La note enchantée</h4>
+                                <p>Charonne</p>
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                        </div><!--Fermeture proposition_detail-->
+                    </a> 
+                </div><!--Fermture proposition-->
 
-            <div class="proposition">
-                <a href="note_enchantee.html">
-                    <img src="public/images/restaurants/note_enchantée.jpg" alt="Note enchantée" class="proposition__image" width="100" />
-                    <div class="proposition__detail">
-                        <h4>La note enchantée</h4>
-                        <p>Charonne</p>
-                    </div><!--Fermeture proposition_detail-->
-                </a>
-                <i class="fa-regular fa-heart"></i> 
-            </div><!--Fermture proposition-->
+                <div class="proposition">
+                    <a href="a_la_francaise.html">
+                        <img src="public/images/restaurants/a_la_francaise.jpg" alt="A la française" class="proposition__image" width="100" />
+                        <div class="proposition__detail">
+                            <div class="proposition__detail-text">
+                                <h4>A la française</h4>
+                                <p>Cité Rouge</p>
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                        </div><!--Fermeture proposition_detail-->
+                    </a> 
+                </div><!--Fermeture proposition-->
 
-            <div class="proposition">
-                <a href="a_la_francaise.html">
-                    <img src="public/images/restaurants/a_la_francaise.jpg" alt="A la française" class="proposition__image" width="100" />
-                    <div class="proposition__detail">
-                        <h4>A la française</h4>
-                        <p>Cité Rouge</p>
-                    </div><!--Fermeture proposition_detail-->
-                </a>
-                <i class="fa-regular fa-heart"></i> 
-            </div><!--Fermeture proposition-->
+                <div class="proposition">
+                    <a href="delice_des_sens.html">
+                        <img src="public/images/restaurants/delice_des_sens.jpg" alt="Délice des sens" class="proposition__image" width="100" />
+                        <div class="proposition__detail">
+                            <div class="proposition__detail-text">
+                                <h4>Le délice des sens</h4>
+                                <p>Folie-Méricourt</p>
+                            </div>
+                            <i class="fa-solid fa-heart"></i>
+                        </div><!--Fermeture proposition_detail-->
+                    </a>
+                </div><!--Fermeture proposition-->
+            </div><!--Fermeture cards-->
+        </section><!--Fermeture restaurants-->
 
-            <div class="proposition">
-                <a href="delice_des_sens.html">
-                    <img src="public/images/restaurants/delice_des_sens.jpg" alt="Délice des sens" class="proposition__image" width="100" />
-                    <div class="proposition__detail">
-                        <h4>Le délice des sens</h4>
-                        <p>Folie-Méricourt</p>
-                    </div><!--Fermeture proposition_detail-->
-                </a>
-                <i class="fa-regular fa-heart"></i> 
-            </div><!--Fermeture proposition-->
-        </div><!--Fermeture cards-->
-    </section><!--Fermeture restaurants-->
+        <footer>
+            <p class="footer-title">ohmyfood</p>
+            <a href="#" class="information">
+                <i class="fa-solid fa-utensils"></i>
+                <p>Proposer un restaurant</p>
+            </a><!--Fermeture information-->
 
-    <footer>
-        <p class="footer-title">ohmyfood</p>
-        <a href="#" class="information">
-            <i class="fa-solid fa-utensils"></i>
-            <p>Proposer un restaurant</p>
-        </a><!--Fermeture information-->
+            <a href="#" class="information">
+                <i class="fa-solid fa-handshake-angle"></i>
+                <p>Devenir partenaire</p>
+            </a><!--Fermeture information-->
 
-        <a href="#" class="information">
-            <i class="fa-solid fa-handshake-angle"></i>
-            <p>Devenir partenaire</p>
-        </a><!--Fermeture information-->
-
-        <a href="#">Mentions légales</a>
-        <a href="mailto:ohmyfood@test.com">Contact</a>
-    </footer>
+            <a href="#">Mentions légales</a>
+            <a href="mailto:ohmyfood@test.com">Contact</a>
+        </footer>
+    </div><!--Fermeture application-->
 </body>
 </html>
