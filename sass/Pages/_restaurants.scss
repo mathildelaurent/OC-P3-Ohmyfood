@@ -1,0 +1,155 @@
+.banniere{
+    width: 100%;
+    height: 250px;
+    position: relative;
+    object-fit: cover;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px 30px 0 0;
+    background-color: $light-grey;
+    height: auto;
+    position: relative;
+    top: -40px;
+    margin-bottom: -40px;
+    width: 100%;
+    z-index: 2;
+    #restaurant-title{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 10%;
+
+        h1{
+            font-family: $logo-font;
+            font-size: 25px;
+            font-weight: 200;
+        }
+        .fa-heart{
+            font-size: 30px;
+            @include heart;
+        }
+    }
+    .propositions{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-top: 7%;
+        h3{
+            font-family: $font;
+            font-weight: 100;
+            font-size: 15px;
+        }
+        .soulignement{
+            width: 50px;
+            border-bottom: 3px solid $color-tertiary;
+            padding-top: 1%;
+        }
+        .card{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            border: 1px solid $dark-grey;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: #D7D7D7 0 0 15px;
+            margin-top: 5%;
+            padding-left: 3%;
+            font-family: $font;
+            
+            .card__title{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 60%;
+                height: 100%;
+                h4{
+                    font-size: 17px;
+                    font-weight: 500;
+                }
+                p{
+                    font-size: 15px;
+                    font-weight: 100;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+            .price{
+                display: flex;
+                justify-content: flex-end;
+                width: 100px;
+                height: 100%;
+                p{
+                    margin-top: 25px;
+                    margin-right: 10px;
+                }
+                .hover-animation{
+                    width: 0%;
+                    transition: width 0.5s;
+                    .hover-animation__progress{
+                        height: 100%;
+                        border-radius: 0 15px 15px 0;
+                        background-color: $color-tertiary;
+                        transform-origin: 100% 50%;
+                        transform: scaleX(0);
+                        transition: transform 0.5s;
+                        .fa-check{
+                            color: $color-tertiary;
+                            background-color: white;
+                            border-radius: 50%;
+                            width: 20px;
+                            height: 20px;
+                            text-align: center;
+                            margin-top: 25px;
+                            margin-left: 17px;
+                            padding-top: 1%;
+                        }
+                    } //* Fermeture hover-animation__progress *//
+                } //* Fermeture hover-animation *//
+            } //* Fermeture price *//
+            &:hover{
+                & .hover-animation{
+                    width: 100px;
+                    & .hover-animation__progress{
+                        transform: scaleX(1);
+                        transition: transform 0.5s ease-in-out;
+                    }
+                    & .fa-check{
+                        animation-name: rotation;
+                        animation-duration: 0.5s;
+                    }
+                }
+            }
+            @keyframes rotation {
+                0%{transform: rotate(0deg);}
+                100%{transform: rotate(359deg);}
+            }
+        } //* Fermeture cards *//
+        .propositions-entrees{
+            animation-delay: 0.5s;
+            @include propositions-appear;
+        }
+        .propositions-plats{
+            animation-delay: 1s;
+            @include propositions-appear;
+        }
+        .propositions-desserts{
+            animation-delay: 1.5s;
+            @include propositions-appear;
+        }
+    } //* Fermeture propositions *//
+} //* Fermeture container *//
+.btn-order{
+    @include button;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+    text-align: center;
+}

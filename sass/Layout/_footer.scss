@@ -1,0 +1,27 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #292929;
+    color: white;
+    padding: 5%;
+    height: auto;
+    .footer-title{
+        font-family: $logo-font;
+        font-size: 17px;
+        margin-bottom: 5%;
+    }
+    .information{
+        display: flex;
+        p{
+            padding-left: 3%;
+        }
+    }
+    & a{
+        color: white;
+        text-decoration: none;
+        font-family: $font;
+        font-weight: 300;
+        margin-bottom: 2%;
+    }
+} //* Fermeture footer *//

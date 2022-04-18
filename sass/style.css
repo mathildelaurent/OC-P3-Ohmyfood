@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+#application {
+  z-index: 2;
+}
+
 #loading {
   display: flex;
   flex-direction: column;
@@ -42,7 +46,7 @@
   }
   100% {
     opacity: 0;
-    z-index: 1;
+    z-index: -1;
   }
 }
 #loading .loading-logo {
@@ -78,27 +82,51 @@
   margin-top: 15%;
 }
 
-#application {
-  z-index: 2;
-  position: absolute;
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #292929;
+  color: white;
+  padding: 5%;
+  height: auto;
 }
-#application header {
+footer .footer-title {
+  font-family: "Shrikhand", cursive;
+  font-size: 17px;
+  margin-bottom: 5%;
+}
+footer .information {
+  display: flex;
+}
+footer .information p {
+  padding-left: 3%;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  margin-bottom: 2%;
+}
+
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#application header .heading-logo {
+header .heading-logo {
   width: 50%;
   padding: 4%;
 }
-#application header .fa-arrow-left {
+header .fa-arrow-left {
   position: absolute;
   left: 5%;
   padding-top: 6%;
   font-size: 20px;
   color: black;
 }
-#application header .navigation {
+header .navigation {
   display: flex;
   width: 100%;
   height: 50px;
@@ -106,18 +134,20 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  box-shadow: inset #D7D7D7 0 2px 13px;
+  border-top: 1px solid #b0adad;
+  box-shadow: inset 0 3px #dedede;
 }
-#application header .navigation .navigation__location-name {
+header .navigation .navigation__location-name {
   background-color: #e6e6e6;
   border: none;
   margin-left: 20px;
 }
-#application header .navigation ::placeholder {
+header .navigation ::placeholder {
   color: black;
   font-size: 15px;
 }
-#application .presentation {
+
+.presentation {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,18 +156,18 @@
   height: 290px;
   padding: 10%;
 }
-#application .presentation .title {
+.presentation .title {
   font-family: "Roboto", sans-serif;
   font-size: 27px;
   text-align: center;
 }
-#application .presentation .presentation__explanation {
+.presentation .presentation__explanation {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 17px;
   font-weight: 100;
 }
-#application .presentation .presentation__btn-exploration {
+.presentation .presentation__btn-exploration {
   padding: 5%;
   border-radius: 30px;
   color: white;
@@ -146,11 +176,15 @@
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   z-index: 1;
+  box-shadow: darkgrey 0 2px 10px;
 }
-#application .presentation .presentation__btn-exploration:hover::after {
+.presentation .presentation__btn-exploration:hover {
+  box-shadow: gray 0 2px 13px;
+}
+.presentation .presentation__btn-exploration:hover::after {
   opacity: 0.8;
 }
-#application .presentation .presentation__btn-exploration::after {
+.presentation .presentation__btn-exploration::after {
   content: "";
   position: absolute;
   border-radius: 30px;
@@ -161,20 +195,21 @@
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
   z-index: -1;
 }
-#application .functioning {
+
+.functioning {
   display: flex;
   flex-direction: column;
   height: auto;
   padding-top: 10%;
   padding-bottom: 10%;
 }
-#application .functioning .title {
+.functioning .title {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   margin-left: 5%;
   margin-bottom: 10%;
 }
-#application .functioning .functioning__btn-choice {
+.functioning .functioning__btn-choice {
   display: flex;
   border-radius: 20px;
   align-items: center;
@@ -190,14 +225,14 @@
   box-shadow: #D7D7D7 0 2px 13px;
   background-color: #F4F2F2;
 }
-#application .functioning .functioning__btn-choice:hover {
+.functioning .functioning__btn-choice:hover {
   background-color: #f2eafb;
   color: #9356DC;
 }
-#application .functioning .functioning__btn-choice:hover .indication {
+.functioning .functioning__btn-choice:hover .indication {
   color: black;
 }
-#application .functioning .functioning__btn-choice .number {
+.functioning .functioning__btn-choice .number {
   color: white;
   border-radius: 50%;
   width: 32px;
@@ -208,7 +243,7 @@
   left: -17%;
   z-index: 1;
 }
-#application .functioning .functioning__btn-choice .number::after {
+.functioning .functioning__btn-choice .number::after {
   content: "";
   position: absolute;
   border-radius: 50%;
@@ -219,28 +254,29 @@
   background: #9356DC;
   z-index: -1;
 }
-#application .functioning .functioning__btn-choice i {
+.functioning .functioning__btn-choice i {
   margin-right: 10%;
   font-size: 18px;
 }
-#application .restaurants {
+
+.restaurants {
   background-color: #F4F2F2;
   height: auto;
   padding-top: 13%;
   padding-bottom: 10%;
 }
-#application .restaurants .title {
+.restaurants .title {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   margin-left: 5%;
 }
-#application .restaurants #cards {
+.restaurants #cards {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
-#application .restaurants #cards .proposition {
+.restaurants #cards .proposition {
   width: 90%;
   height: 250px;
   border: 1px solid #e6e6e6;
@@ -248,8 +284,9 @@
   background-color: white;
   box-shadow: #D7D7D7 0 0 15px;
   margin-top: 5%;
+  position: relative;
 }
-#application .restaurants #cards .proposition .proposition__image {
+.restaurants #cards .proposition .proposition__image {
   position: relative;
   display: block;
   width: 100%;
@@ -258,21 +295,22 @@
   object-fit: cover;
   z-index: 1;
 }
-#application .restaurants #cards .proposition .new {
-  width: 20%;
+.restaurants #cards .proposition .new {
+  width: 85px;
+  height: 45px;
   text-align: center;
   background-color: #99E2D0;
   border-radius: 3px;
   font-family: "Roboto", sans-serif;
   font-size: 13px;
   font-weight: 300;
-  padding: 2%;
+  padding: 15px;
   position: absolute;
-  margin-left: 65%;
-  margin-top: 3%;
+  right: 20px;
+  top: 13px;
   z-index: 2;
 }
-#application .restaurants #cards .proposition .proposition__detail {
+.restaurants #cards .proposition .proposition__detail {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -280,26 +318,36 @@
   margin-right: 5%;
   margin-top: 2%;
 }
-#application .restaurants #cards .proposition .proposition__detail .fa-heart {
+.restaurants #cards .proposition .proposition__detail .fa-heart {
   font-size: 25px;
-  background: white;
+  transition: all 0.5s;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.08rem;
+  background: -webkit-linear-gradient(top right, #FF79DA 30%, #9356DC 70%);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-size: 100% 0;
+  background-position: 100% 100%;
+  font-weight: bold;
 }
-#application .restaurants #cards .proposition .proposition__detail .fa-heart:hover {
-  background: linear-gradient(to top, #FF79DA, #9356DC);
-  background-clip: text;
+.restaurants #cards .proposition .proposition__detail .fa-heart:hover {
+  background-size: 100% 100%;
+  -webkit-text-stroke-color: transparent;
 }
-#application .restaurants #cards .proposition a {
+.restaurants #cards .proposition a {
   text-decoration: none;
   color: black;
   font-family: "Roboto", sans-serif;
 }
-#application .banniere {
+
+.banniere {
   width: 100%;
   height: 250px;
   position: relative;
   object-fit: cover;
 }
-#application #container {
+
+#container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -308,44 +356,56 @@
   background-color: #F4F2F2;
   height: auto;
   position: relative;
-  padding-bottom: 5%;
   top: -40px;
-  margin: 0;
+  margin-bottom: -40px;
   width: 100%;
   z-index: 2;
 }
-#application #container #restaurant-title {
+#container #restaurant-title {
   display: flex;
   width: 100%;
   justify-content: space-around;
   align-items: center;
   margin-top: 10%;
 }
-#application #container #restaurant-title h1 {
+#container #restaurant-title h1 {
   font-family: "Shrikhand", cursive;
   font-size: 25px;
   font-weight: 200;
 }
-#application #container #restaurant-title .fa-heart {
+#container #restaurant-title .fa-heart {
   font-size: 30px;
+  transition: all 0.5s;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.08rem;
+  background: -webkit-linear-gradient(top right, #FF79DA 30%, #9356DC 70%);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-size: 100% 0;
+  background-position: 100% 100%;
+  font-weight: bold;
 }
-#application #container .propositions {
+#container #restaurant-title .fa-heart:hover {
+  background-size: 100% 100%;
+  -webkit-text-stroke-color: transparent;
+}
+#container .propositions {
   display: flex;
   flex-direction: column;
   width: 90%;
   margin-top: 7%;
 }
-#application #container .propositions h3 {
+#container .propositions h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 100;
   font-size: 15px;
 }
-#application #container .propositions .soulignement {
+#container .propositions .soulignement {
   width: 50px;
   border-bottom: 3px solid #99E2D0;
   padding-top: 1%;
 }
-#application #container .propositions .card {
+#container .propositions .card {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -358,39 +418,39 @@
   padding-left: 3%;
   font-family: "Roboto", sans-serif;
 }
-#application #container .propositions .card .card__title {
+#container .propositions .card .card__title {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 60%;
   height: 100%;
 }
-#application #container .propositions .card .card__title h4 {
+#container .propositions .card .card__title h4 {
   font-size: 17px;
   font-weight: 500;
 }
-#application #container .propositions .card .card__title p {
+#container .propositions .card .card__title p {
   font-size: 15px;
   font-weight: 100;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-#application #container .propositions .card .price {
+#container .propositions .card .price {
   display: flex;
   justify-content: flex-end;
-  width: 40%;
+  width: 100px;
   height: 100%;
 }
-#application #container .propositions .card .price p {
+#container .propositions .card .price p {
   margin-top: 25px;
   margin-right: 10px;
 }
-#application #container .propositions .card .price .hover-animation {
+#container .propositions .card .price .hover-animation {
   width: 0%;
   transition: width 0.5s;
 }
-#application #container .propositions .card .price .hover-animation .hover-animation__progress {
+#container .propositions .card .price .hover-animation .hover-animation__progress {
   height: 100%;
   border-radius: 0 15px 15px 0;
   background-color: #99E2D0;
@@ -398,7 +458,7 @@
   transform: scaleX(0);
   transition: transform 0.5s;
 }
-#application #container .propositions .card .price .hover-animation .hover-animation__progress .fa-check {
+#container .propositions .card .price .hover-animation .hover-animation__progress .fa-check {
   color: #99E2D0;
   background-color: white;
   border-radius: 50%;
@@ -409,14 +469,14 @@
   margin-left: 17px;
   padding-top: 1%;
 }
-#application #container .propositions .card:hover .hover-animation {
-  width: 40%;
+#container .propositions .card:hover .hover-animation {
+  width: 100px;
 }
-#application #container .propositions .card:hover .hover-animation .hover-animation__progress {
+#container .propositions .card:hover .hover-animation .hover-animation__progress {
   transform: scaleX(1);
-  transition: transform 0.5s;
+  transition: transform 0.5s ease-in-out;
 }
-#application #container .propositions .card:hover .hover-animation .fa-check {
+#container .propositions .card:hover .hover-animation .fa-check {
   animation-name: rotation;
   animation-duration: 0.5s;
 }
@@ -428,7 +488,7 @@
     transform: rotate(359deg);
   }
 }
-#application #container .propositions .propositions-entrees {
+#container .propositions .propositions-entrees {
   animation-delay: 0.5s;
   opacity: 0;
   animation-name: appear;
@@ -452,7 +512,7 @@
     opacity: 1;
   }
 }
-#application #container .propositions .propositions-plats {
+#container .propositions .propositions-plats {
   animation-delay: 1s;
   opacity: 0;
   animation-name: appear;
@@ -476,7 +536,7 @@
     opacity: 1;
   }
 }
-#application #container .propositions .propositions-desserts {
+#container .propositions .propositions-desserts {
   animation-delay: 1.5s;
   opacity: 0;
   animation-name: appear;
@@ -500,7 +560,8 @@
     opacity: 1;
   }
 }
-#application .btn-order {
+
+.btn-order {
   padding: 5%;
   border-radius: 30px;
   color: white;
@@ -509,14 +570,19 @@
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   z-index: 1;
+  box-shadow: darkgrey 0 2px 10px;
   margin-top: 5%;
+  margin-bottom: 5%;
   width: 50%;
   text-align: center;
 }
-#application .btn-order:hover::after {
+.btn-order:hover {
+  box-shadow: gray 0 2px 13px;
+}
+.btn-order:hover::after {
   opacity: 0.8;
 }
-#application .btn-order::after {
+.btn-order::after {
   content: "";
   position: absolute;
   border-radius: 30px;
@@ -527,57 +593,32 @@
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
   z-index: -1;
 }
-#application footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #292929;
-  color: white;
-  padding: 5%;
-  margin: 0;
-  height: auto;
-}
-#application footer .footer-title {
-  font-family: "Shrikhand", cursive;
-  font-size: 17px;
-  margin-bottom: 5%;
-}
-#application footer .information {
-  display: flex;
-}
-#application footer .information p {
-  padding-left: 3%;
-}
-#application footer a {
-  color: white;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-}
+
 @media all and (min-width: 768px) {
-  #application .presentation {
+  .presentation {
     height: auto;
     padding: 5%;
   }
-  #application .presentation .title {
+  .presentation .title {
     font-size: 40px;
     margin-bottom: 3%;
   }
-  #application .presentation .presentation__explanation {
+  .presentation .presentation__explanation {
     font-size: 25px;
     margin-bottom: 3%;
   }
-  #application .functioning {
+
+  .functioning {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 0;
   }
-  #application .functioning .title {
+  .functioning .title {
     width: 100%;
   }
-  #application .functioning .functioning__btn-choice {
+  .functioning .functioning__btn-choice {
     width: 40%;
     align-items: center;
     margin-left: 5%;
@@ -586,17 +627,18 @@
     padding-left: 3%;
     margin-bottom: 10%;
   }
-  #application .functioning .functioning__btn-choice .number {
+  .functioning .functioning__btn-choice .number {
     top: -50%;
     left: 40%;
   }
-  #application .restaurants #cards {
+
+  .restaurants #cards {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  #application .restaurants #cards .proposition {
+  .restaurants #cards .proposition {
     width: 40%;
     height: 250px;
     border: 1px solid #e6e6e6;
@@ -605,37 +647,36 @@
     box-shadow: #D7D7D7 0 0 15px;
     margin-top: 5%;
   }
-  #application .restaurants #cards .proposition .proposition__image {
+  .restaurants #cards .proposition .proposition__image {
     position: relative;
     width: 100%;
     height: 180px;
     border-radius: 15px 15px 0 0;
     object-fit: cover;
   }
-  #application .restaurants #cards .proposition .new {
-    width: 10%;
-  }
-  #application #container {
+
+  #container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
-  #application #container #restaurant-title h1 {
+  #container #restaurant-title h1 {
     font-size: 35px;
   }
-  #application #container .propositions {
+  #container .propositions {
     width: 40%;
   }
-  #application #container .btn-order {
+  #container .btn-order {
     width: 61%;
   }
-  #application footer {
+
+  footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  #application footer .footer-title {
+  footer .footer-title {
     font-size: 30px;
     width: 100%;
     text-align: center;

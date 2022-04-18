@@ -1,0 +1,57 @@
+@mixin button {
+    padding: 5%;
+    border-radius: 30px;
+    color: white;
+    position: relative;
+    text-decoration: none;
+    font-family: $font;
+    font-size: 15px;
+    z-index: 1;
+    box-shadow: darkgrey 0 2px 10px;
+    &:hover{
+        &::after{
+            opacity: 0.8;
+        }
+        box-shadow: gray 0 2px 13px;
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        border-radius: 30px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: $button-color;
+        z-index: -1;
+    }
+}//* Fermeture mixin *//
+@mixin propositions-appear {
+    opacity: 0;
+    animation-name: appear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    @keyframes appear {
+        0% {opacity: 0;}
+        25% {opacity: 0.25;}
+        50% {opacity: 0.5;}
+        75% {opacity: 0.75;}
+        100% {opacity: 1;}
+    }
+} //* Fermeture propositions-appears *//
+
+@mixin heart {
+    transition: all 0.5s;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.08rem;
+    background: -webkit-linear-gradient(top right, $color-secondary 30%, $color-primary 70%);
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-size: 100% 0;
+    background-position: 100% 100%;
+    font-weight: bold;
+    &:hover{
+        background-size: 100% 100%;
+        -webkit-text-stroke-color: transparent;
+    }
+}
